@@ -1,0 +1,76 @@
+/* styles.css */
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('image.jpg'); /* Background image */
+    background-size: cover; /* Cover the entire background */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(230, 232, 236, 0.8); /* White background with some transparency */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px); /* Apply a blur effect */
+}
+
+.heading-image {
+    width: 100px; /* Adjust the width as needed */
+    height: auto;
+    margin-bottom: 20px; /* Adjust margin as needed */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1f2125; /* Dark gray heading color */
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #cccccc; /* Light gray border */
+    border-radius: 4px;
+    font-size: 16px;
+    width: 70%;
+    margin-right: 10px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue button background */
+    border: none;
+    border-radius: 4px;
+    color: #ffffff; /* White button text color */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#result {
+    padding: 20px;
+    border: 1px solid #cccccc; /* Light gray border */
+    border-radius: 4px;
+    background-color: rgba(249, 249, 249, 0.8); /* Light blur effect */
+    color: #333333; /* Dark gray text color */
+}

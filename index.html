@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Domain Information</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <img src="images.jpeg" alt="Image" class="heading-image">
+        <h1>Get Domain Information</h1>
+        <form id="urlform">
+            <input type="text" id="input-url" placeholder="Enter Domain">
+            <button type="submit">Lookup</button>
+        </form>
+        <div id="result"></div> <!-- Update ID to match the display of URL information -->
+    </div>
+    <script>
+        function getURL() {
+            let url = document.querySelector("#input-url").value;
+            const API_KEY = 'ELi0PD9RQgEoA9EzcwpSug==tFCqZXRLwDbZH6gn';
+            
+            // Construct the API endpoint URL
+            let apiUrl = 'https://api.api-ninjas.com/v1/whois?domain=' + encodeURIComponent(url);
+            
+            // Make the HTTP GET request
+            fetch(apiUrl, {
+                method: 'GET',
+                headers: {
+                    'X-Api-Key':'ELi0PD9RQgEoA9EzcwpSug==tFCqZXRLwDbZH6gn'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response data
+                console.log(data);
+                displayResult(data);
+            })
+            .catch(error => {
+                // Handle errors
+                console.error('Error:', error);
+            });
+        }
+
+        function displayResult(data) {
+            // Create a table to display the data
+            let table = document.createElement("table");
+            table.border = "1";
+
+            // Iterate over the data object and create table rows and cells
+            for (let key in data) {
+                let row = table.insertRow();
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                cell1.textContent = key;
+                cell2.textContent = data[key];
+            }
+
+            // Display the table in the result div
+            document.getElementById("result").innerHTML = "";
+            document.getElementById("result").appendChild(table);
+        }
+
+        // Add event listener for form submission
+        document.getElementById("urlform").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            getURL(); // Call the function to get URL information
+        });
+    </script>
+</body>
+</html>
